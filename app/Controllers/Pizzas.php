@@ -17,7 +17,7 @@ class Pizzas extends BaseController
 		if($this->request->getMethod() == "post"){
 			$rules = [
 				'name'=>'required',
-				'prize'=>'required|numeric|max_length[50]|min_length[1]',
+				'price'=>'required|numeric|max_length[50]|min_length[1]',
 				'ingredients'=>'required',
 			];
 		    if(!$this->validate($rules)){
@@ -27,7 +27,7 @@ class Pizzas extends BaseController
 			else{
 				$pizza = new PizzaModel();
 					$name = $this->request->getVar('name');
-					$price = $this->request->getVar('prize');
+					$price = $this->request->getVar('price');
 					$ingredients = $this->request->getVar('ingredients');
 					$pizzaData = array(
 						'name'=>$name,
